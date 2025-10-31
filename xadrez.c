@@ -6,13 +6,15 @@
 
 #include <stdio.h>
 
-// Constantes para os movimentos
+//#include Constantes para os movimentos
 #define MOV_BISPO 5
 #define MOV_TORRE 5
 #define MOV_RAINHA 8
+#define MOV_CAVALO_BAIXO 2
+#define MOV_CAVALO_ESQUERDA 1
 
 int main() {
-    int i;
+    int i, j;
     
     // Movimento do Bispo - 5 casas na diagonal superior direita
     printf("Movimento do Bispo (5 casas na diagonal superior direita):\n");
@@ -35,6 +37,26 @@ int main() {
     printf("Movimento da Rainha (8 casas para a esquerda):\n");
     for(i = 1; i <= MOV_RAINHA; i++) {
         printf("Movimento %d: Esquerda\n", i);
+    }
+    
+    printf("\n");
+    
+    // Movimento do Cavalo - 2 casas para baixo e 1 casa para a esquerda
+    printf("Movimento do Cavalo (2 casas para baixo e 1 casa para a esquerda):\n");
+    
+    // Loop externo (for) para o movimento para baixo
+    for(i = 1; i <= MOV_CAVALO_BAIXO; i++) {
+        printf("Baixo\n");
+        
+        // Loop interno (while) para o movimento para a esquerda
+        // Só executa após o último movimento para baixo
+        if(i == MOV_CAVALO_BAIXO) {
+            j = 1;
+            while(j <= MOV_CAVALO_ESQUERDA) {
+                printf("Esquerda\n");
+                j++;
+            }
+        }
     }
     
     return 0;
